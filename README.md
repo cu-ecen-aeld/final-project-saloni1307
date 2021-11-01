@@ -3,7 +3,7 @@ Owner of the Repository - Saloni Shah (GitHub ID: saloni1307)
 
 This repository contains the final project submissions made by Saloni Shah and Michelle Christian for the ECEN 5713 AESD (Fall21) class.
 
-**Overiew of the repository**
+**Overview of the repository**
 
 This repository contains the Buildroot Source Code for RPI for the final project.
 
