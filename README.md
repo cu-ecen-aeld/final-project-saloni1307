@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 # ECEN 5713 AESD - Final Project Repository
 Owner of the Repository - Saloni Shah (GitHub ID: saloni1307)
 
@@ -9,7 +8,7 @@ This repository contains the final project submissions made by Saloni Shah and M
 
 This repository contains the Buildroot Source Code for RPI for the final project.
 
-```[Project Overview](https://github.com/cu-ecen-aeld/final-project-saloni1307/wiki/Project-Overview)
+[Project Overview](https://github.com/cu-ecen-aeld/final-project-saloni1307/wiki/Project-Overview)
 
 [Schedule](https://github.com/cu-ecen-aeld/final-project-saloni1307/wiki/Schedule)
 
