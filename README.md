@@ -17,4 +17,4 @@ This repository contains the Buildroot Source Code for RPI for the final project
 
 [Michelle's Repository](https://github.com/cu-ecen-aeld/final-project-Mich2899)
 
-[Shared Repository](https://github.com/cu-ecen-aeld/project-mich-saloni-shared)```
+[Shared Repository](https://github.com/cu-ecen-aeld/project-mich-saloni-shared)
