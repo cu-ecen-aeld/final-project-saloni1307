@@ -1,0 +1,4 @@
+config BR2_PACKAGE_PYTHON_DLIB
+    bool "python-dlib"
+    help
+      library for python dlib
