@@ -15,8 +15,15 @@ do
 		--add-I2C)
 		if ! grep -qE '^dtparam=i2c_arm=on' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
 			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+dtoverlay=miniuart-bt
 --enable I2C
 dtparam=i2c_arm=on
+
+max_usb_current=1
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt 1024 600 60 6 0 0 0
+hdmi_drive=1
 __EOF__
 		fi
 		;;
