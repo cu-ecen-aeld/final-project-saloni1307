@@ -18,7 +18,6 @@ do
 dtoverlay=miniuart-bt
 --enable I2C
 dtparam=i2c_arm=on
-
 max_usb_current=1
 hdmi_group=2
 hdmi_mode=87
