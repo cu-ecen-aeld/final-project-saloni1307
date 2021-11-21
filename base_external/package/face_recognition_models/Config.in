@@ -1,4 +1,0 @@
-config BR2_PACKAGE_FACE_RECOGNITION_MODELS
-	bool "face_recognition_models"
-	help
-	  Includes the face-recognition_models package for python.

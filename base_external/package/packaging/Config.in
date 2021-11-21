@@ -1,4 +1,0 @@
-config BR2_PACKAGE_PACKAGING
-	bool "packaging"
-	help
-	  Includes the packaging package for python.
