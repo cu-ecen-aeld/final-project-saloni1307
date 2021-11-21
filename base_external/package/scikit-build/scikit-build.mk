@@ -12,4 +12,4 @@ SCIKIT_BUILD_LICENSE_FILES = LICENSE
 SCIKIT_BUILD_DEPENDENCIES:= packaging wheel distro pyparsing
 SCIKIT_BUILD_SETUP_TYPE:= distutils
 
-$(eval $(python-package))
+$(eval $(generic-package))

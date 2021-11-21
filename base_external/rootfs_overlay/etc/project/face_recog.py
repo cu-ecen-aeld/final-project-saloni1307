@@ -5,10 +5,10 @@ import face_recognition
 import cv2
 import numpy as np
 from time import sleep
-from tkinter import *
+#from tkinter import *
 from PIL import Image
-from tkinter import messagebox
-import eye_game
+#from tkinter import messagebox
+#import eye_game
 
 previous ="Unknown"
 count=0
@@ -23,11 +23,11 @@ video_capture = cv2.VideoCapture(0)
 file = 'image.jpg'
 
 # load the picture whose face has to be recognised.
-michelle_image = face_recognition.load_image_file("/root/etc/project/photos/michelle.jpg")
+michelle_image = face_recognition.load_image_file("/etc/project/photos/michelle.jpg")
 michelle_face_encoding = face_recognition.face_encodings(michelle_image)[0]
 
 # Load a second picture whose face has to be recognised
-saloni_image = face_recognition.load_image_file("/root/etc/project/photos/saloni.jpg")
+saloni_image = face_recognition.load_image_file("/etc/project/photos/saloni.jpg")
 saloni_face_encoding = face_recognition.face_encodings(saloni_image)[0]
 
 
@@ -78,16 +78,16 @@ while True:
             
             if matches[best_match_index]:
                 name = known_face_names[best_match_index]
-                direction = eye_game.get_eyeball_direction(file)
+                #direction = eye_game.get_eyeball_direction(file)
                 #eye_game.api.get_eyeball_direction(cv_image_array)
-                if previous != direction:
-                    previous=direction                  
-                else:
-                    count=1+count
-                    print(count)
-                    if (count>=10):
-                       print("Alert!! Alert!! Driver Drowsiness Detected")
-                       cv2.putText(frame, "DROWSINESS ALERT!", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
+                #if previous != direction:
+                    #previous=direction                  
+                #else:
+                    #count=1+count
+                    #print(count)
+                    #if (count>=10):
+                       #print("Alert!! Alert!! Driver Drowsiness Detected")
+                       #cv2.putText(frame, "DROWSINESS ALERT!", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
             face_names.append(name)
             #print(face_names)   
