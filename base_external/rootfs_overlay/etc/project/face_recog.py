@@ -4,7 +4,7 @@
 import face_recognition
 import cv2
 import numpy as np
-from time import sleep
+#from time import sleep
 #from tkinter import *
 from PIL import Image
 #from tkinter import messagebox
@@ -16,8 +16,6 @@ count=0
 ###########################code for face recognition started##############################
 
 print("[INFO]..........face recognition started") 
-# start your webcam
-video_capture = cv2.VideoCapture(0)
 
 #frame = (video_capture, file)
 file = 'image.jpg'
@@ -30,6 +28,8 @@ michelle_face_encoding = face_recognition.face_encodings(michelle_image)[0]
 saloni_image = face_recognition.load_image_file("/etc/project/photos/saloni.jpg")
 saloni_face_encoding = face_recognition.face_encodings(saloni_image)[0]
 
+# start your webcam
+video_capture = cv2.VideoCapture(0)
 
 # Create arrays of known face encodings and their names
 known_face_encodings = [
@@ -47,6 +47,8 @@ face_encodings = []
 face_names = []
 process_this_frame = True
 
+fps = video_capture.get(cv2.CAP_PROP_FPS)
+print("FPS: {0}".format(fps))
 #######################################################################################
 ################infinite loop to recognise face in the frame of the camera############
 while True:
@@ -65,7 +67,7 @@ while True:
         # Find all the faces and face encodings in the current frame of video
         face_locations = face_recognition.face_locations(rgb_small_frame)
         face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
-        cv2.imwrite(file, small_frame)
+        #cv2.imwrite(file, small_frame)
         
         face_names = []
         for face_encoding in face_encodings:
@@ -89,38 +91,36 @@ while True:
                        #print("Alert!! Alert!! Driver Drowsiness Detected")
                        #cv2.putText(frame, "DROWSINESS ALERT!", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
-            face_names.append(name)
-            #print(face_names)   
+            #face_names.append(name)
+            print(name)   
 
 
     process_this_frame = not process_this_frame
     
         # Display the results
-    for (top, right, bottom, left), name in zip(face_locations, face_names):
+    #for (top, right, bottom, left), name in zip(face_locations, face_names):
             # Scale back up face locations since the frame we detected in was scaled to 1/4 size
-        top *= 4
-        right *= 4
-        bottom *= 4
-        left *= 4
+       # top *= 4
+       # right *= 4
+       # bottom *= 4
+       # left *= 4
 
             # Draw a box around the face
-        cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+       # cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
             # Draw a label with a name below the face
-        cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
-        font = cv2.FONT_HERSHEY_DUPLEX
-        cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+       # cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
+       # font = cv2.FONT_HERSHEY_DUPLEX
+      #  cv2.putText(frame, name, (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
         
 
         # Display the resulting image
-    cv2.imshow('Video', frame)
+   # cv2.imshow('Video', frame)
     
     
         # Hit 'q' on the keyboard to quit!
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-      break
+   # if cv2.waitKey(1) & 0xFF == ord('q'):
+     # break
       
-video_capture.release()
-cv2.destroyAllWindows()
-       
-        
+#video_capture.release()
+#cv2.destroyAllWindows()
