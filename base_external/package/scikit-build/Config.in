@@ -1,0 +1,4 @@
+config BR2_PACKAGE_SCIKIT_BUILD
+	bool "scikit-build"
+	help
+	  Includes the scikit-build package for python.

@@ -1,0 +1,4 @@
+config BR2_PACKAGE_OPENCV_PYTHON
+	bool "opencv-python"
+	help
+	  Includes the opencv-python package for python.
