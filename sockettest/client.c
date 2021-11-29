@@ -35,6 +35,7 @@ int main()
 {
     int sockfd;
     struct sockaddr_in servaddr;
+    char server_ip[25]={0};
    
     // socket create and varification
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -46,18 +47,21 @@ int main()
         printf("Socket successfully created..\n");
     bzero(&servaddr, sizeof(servaddr));
    
+    printf("Enter server ip address: ");
+    scanf("%s", server_ip);
+   
     // assign IP, PORT
     servaddr.sin_family = AF_INET;
-    servaddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    servaddr.sin_addr.s_addr = inet_addr(server_ip);
     servaddr.sin_port = htons(PORT);
    
     // connect the client socket to server socket
     if (connect(sockfd, (SA*)&servaddr, sizeof(servaddr)) != 0) {
-        printf("connection with the server failed...\n");
+        printf("\nconnection with the server failed...\n");
         exit(0);
     }
     else
-        printf("connected to the server..\n");
+        printf("\nconnected to the server..\n");
    
     // function for chat
     func(sockfd);
