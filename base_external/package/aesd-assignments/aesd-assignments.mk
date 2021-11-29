@@ -13,10 +13,6 @@ AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/final-project-Mich2899.git
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
 
-define AESD_ASSIGNMENTS_BUILD_CMDS
-#	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D) all
-endef
-
 # TODO add your writer, finder and finder-test utilities/scripts to the installation steps below
 define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
 	$(INSTALL) -d 0755 $(@D)/ $(TARGET_DIR)/etc/project
