@@ -7,8 +7,12 @@ import numpy as np
 #from time import sleep
 #from tkinter import *
 from PIL import Image
+import serial
+import os,time
 #from tkinter import messagebox
 #import eye_game
+
+sim800l = serial.Serial('/dev/ttyAMA0', baudrate = 9600,timeout=1)
 
 previous ="Unknown"
 count=0
@@ -58,7 +62,7 @@ while True:
 
     # Resize frame of video to 1/4 size for faster face recognition processing
     small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
-    cv2.resizeWindow('Video', 600,600)
+    #cv2.resizeWindow('Video', 600,600)
 
     #Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
     rgb_small_frame = small_frame[:, :, ::-1]
@@ -81,6 +85,26 @@ while True:
             
             if matches[best_match_index]:
                 name = known_face_names[best_match_index]
+                if name == "MichelleChristian":
+                  sim800l.write(str.encode('AT' + '\r\n'))
+                  rcv=sim800l.read(10)
+                  print(rcv)
+                  time.sleep(1)
+                  
+                  sim800l.write(str.encode('AT+CMGF=1' + '\r\n'))
+                  time.sleep(1)
+                  print(sim800l.read(24))
+                  time.sleep(1)
+                  
+                  receiverNum = "+17206876733"
+                  cmd1 = "AT+CMGS=\""+str(receiverNum)+"\"\n"
+                  sim800l.write(cmd1.encode())
+                  print(sim800l.read(40))
+                  time.sleep(1)
+                  message = "ALERT! Michelle is driving the car"
+                  sim800l.write(str.encode(message))
+                  sim800l.write(str.encode('\x1a'))
+                  print(sim800l.read(24))
                 #direction = eye_game.get_eyeball_direction(file)
                 #eye_game.api.get_eyeball_direction(cv_image_array)
                 #if previous != direction:
@@ -117,7 +141,7 @@ while True:
 
         # Display the resulting image
     cv2.imshow('Video', frame)
-    cv2.resizeWindow('Video', 600,600)
+    #cv2.resizeWindow('Video', 600,600)
     
     
         # Hit 'q' on the keyboard to quit!
@@ -126,4 +150,5 @@ while True:
       
 video_capture.release()
 cv2.destroyAllWindows()
+
 

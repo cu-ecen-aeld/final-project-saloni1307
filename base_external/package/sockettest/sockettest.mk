@@ -14,12 +14,13 @@ SOCKETTEST_SITE_METHOD = git
 SOCKETTEST_GIT_SUBMODULES = YES
 
 define SOCKETTEST_BUILD_CMDS
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/sockettest all
+	#$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/sockettest all
 endef
 
 # TODO add your writer, finder and finder-test utilities/scripts to the installation steps below
 define SOCKETTEST_INSTALL_TARGET_CMDS
-	$(INSTALL) -m 0755 $(@D)/sockettest/* $(TARGET_DIR)/etc/project
+	#$(INSTALL) -m 0755 $(@D)/sockettest/* $(TARGET_DIR)/etc/project
+	$(INSTALL) -m 0755 $(@D)/python_socket/* $(TARGET_DIR)/etc/project
 endef
 
 $(eval $(generic-package))

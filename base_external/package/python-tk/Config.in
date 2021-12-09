@@ -1,6 +1,0 @@
-config BR2_PACKAGE_PYTHON_TK
-	bool "python-tk"
-	help
-	  TensorKit is a deep learning helper between Python and C++.
-
-	  https://github.com/atranitell/TensorKit
